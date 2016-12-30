@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace CaixaEletronico
 {
     public partial class Form1 : Form
@@ -71,11 +72,11 @@ namespace CaixaEletronico
             switch (cbxTipoConta.SelectedIndex)
             {
                 case (int)Conta.tipo.Corrente:
-                    contaCorrente.Saca(Convert.ToDouble(txtValor.Text));
+                    FazSaque(contaCorrente);
                     break;
 
                 case (int)Conta.tipo.Poupanca:
-                    contaPoupanca.Saca(Convert.ToDouble(txtValor.Text));
+                    FazSaque(contaPoupanca);
                     break;
             }
             
@@ -113,5 +114,26 @@ namespace CaixaEletronico
             txtSaldoTotal.Text = saldoTotal.SaldoTotal.ToString();
             txtValor.Clear();   
         }
+
+        private void FazSaque(Conta conta)
+        {
+            try
+            {
+                conta.Saca(Convert.ToDouble(txtValor.Text));
+            }
+            catch (SaldoInsuficienteExecption ex)
+            {
+                MessageBox.Show("Saldo Insuficiente!");
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show("Valor inválido!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao sacar valor!");
+            }
+        }
+
     }
 }

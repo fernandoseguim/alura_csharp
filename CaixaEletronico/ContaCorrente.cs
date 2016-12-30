@@ -9,16 +9,19 @@ namespace CaixaEletronico
     class ContaCorrente : Conta
     {
 
-        public override bool Saca(double valor)
+        public override void Saca(double valor)
         {
-            if (valor > this.Saldo || valor < 0)
+            if (valor > this.Saldo)
             {
-                return false;
+                throw new SaldoInsuficienteExecption();
+            }
+            if (valor < 0)
+            {
+                throw new ArgumentException();
             }
             else
             {
                 this.Saldo -= valor;
-                return true;
             }
         }
 

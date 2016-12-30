@@ -13,16 +13,19 @@ namespace CaixaEletronico
             return this.Saldo * 0.03;
         }
 
-        public override bool Saca(double valor)
+        public override void Saca(double valor)
         {
-            if (valor > this.Saldo || valor < 0)
+            if (valor > this.Saldo)
             {
-                return false;
+                throw new SaldoInsuficienteExecption();
+            }
+            if (valor < 0)
+            {
+                throw new ArgumentException();
             }
             else
             {
-                this.Saldo -= valor + 0.10;
-                return true;
+                this.Saldo -= valor;
             }
         }
 
