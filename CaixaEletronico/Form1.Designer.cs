@@ -42,6 +42,7 @@
             this.txtSaldoTotal = new System.Windows.Forms.TextBox();
             this.cbxTipoConta = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCalculaTributos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnDeposito
@@ -166,11 +167,22 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "Tipo de Conta:";
             // 
+            // btnCalculaTributos
+            // 
+            this.btnCalculaTributos.Location = new System.Drawing.Point(263, 110);
+            this.btnCalculaTributos.Name = "btnCalculaTributos";
+            this.btnCalculaTributos.Size = new System.Drawing.Size(113, 23);
+            this.btnCalculaTributos.TabIndex = 17;
+            this.btnCalculaTributos.Text = "Calcula Tributos";
+            this.btnCalculaTributos.UseVisualStyleBackColor = true;
+            this.btnCalculaTributos.Click += new System.EventHandler(this.btnCalculaTributos_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 286);
+            this.Controls.Add(this.btnCalculaTributos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbxTipoConta);
             this.Controls.Add(this.lblSaldoTotal);
@@ -209,6 +221,7 @@
         private System.Windows.Forms.TextBox txtSaldoTotal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbxTipoConta;
+        private System.Windows.Forms.Button btnCalculaTributos;
     }
 }
 

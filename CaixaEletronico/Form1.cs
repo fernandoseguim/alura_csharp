@@ -34,7 +34,7 @@ namespace CaixaEletronico
             contaPoupanca.Titular = contaCorrente.Titular;
             contaPoupanca.Numero = contaCorrente.Numero;
             contaPoupanca.Deposita(3000.00);
-
+            
             saldoTotal = new TotalizadorDeContas();
             saldoTotal.Adiciona(contaCorrente);
             saldoTotal.Adiciona(contaPoupanca);
@@ -81,18 +81,29 @@ namespace CaixaEletronico
             
             MostraConta(cbxTipoConta.SelectedIndex);
         }
-       
+
+        private void btnCalculaTributos_Click(object sender, EventArgs e)
+        {
+            TotalizadorDeTributos totalizadorTributos =  new TotalizadorDeTributos();
+            totalizadorTributos.Acumula(contaPoupanca);
+            MessageBox.Show("Total de tributos: " + totalizadorTributos.Total.ToString());
+        }
+
         private void MostraConta(int tipo)
         {
             switch (tipo)
             {
                 case (int)Conta.tipo.Corrente:
+                    btnCalculaTributos.Visible = false;
+                    btnCalculaTributos.Enabled = false;
                     txtTitular.Text = contaCorrente.Titular.Nome;
                     txtNumero.Text = contaCorrente.Numero.ToString();
                     txtSaldo.Text = contaCorrente.Saldo.ToString();
                     break;
 
                 case (int)Conta.tipo.Poupanca:
+                    btnCalculaTributos.Visible = true;
+                    btnCalculaTributos.Enabled = true;
                     txtTitular.Text = contaPoupanca.Titular.Nome;
                     txtNumero.Text = contaPoupanca.Numero.ToString();
                     txtSaldo.Text = contaPoupanca.Saldo.ToString();

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CaixaEletronico
 {
     
-    class Conta
+    abstract class Conta
     {
                
         public enum tipo { Corrente = 0, Poupanca = 1 };
@@ -24,18 +24,8 @@ namespace CaixaEletronico
             }
         }
 
-        public virtual bool Saca(double valor)
-        {
-            if (valor > this.Saldo || valor < 0)
-            {
-                return false;
-            }
-            else
-            {
-                this.Saldo -= valor;
-                return true;
-            }
-        }
+        public abstract bool Saca(double valor);
+        
 
         public void Transfere(double valor, Conta destino)
         {
