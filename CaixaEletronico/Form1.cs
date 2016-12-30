@@ -13,8 +13,10 @@ namespace CaixaEletronico
     public partial class Form1 : Form
     {
 
-        Conta conta = new Conta();
-
+        ContaCorrente contaCorrente;
+        ContaPoupanca contaPoupanca;
+        TotalizadorDeContas saldoTotal;
+        
         public Form1()
         {
             InitializeComponent();
@@ -23,41 +25,82 @@ namespace CaixaEletronico
         private void Form1_Load(object sender, EventArgs e)
         {
             
-            conta.Titular = new Cliente("Fernando Seguim", 28);
-            conta.Numero = 1;
-            conta.Deposita(1000.00);
-            MostraConta();
+            contaCorrente = new ContaCorrente();
+            contaCorrente.Titular = new Cliente("Fernando Seguim", 28);
+            contaCorrente.Numero = 1;
+            contaCorrente.Deposita(1000.00);
+
+            contaPoupanca = new ContaPoupanca();
+            contaPoupanca.Titular = contaCorrente.Titular;
+            contaPoupanca.Numero = contaCorrente.Numero;
+            contaPoupanca.Deposita(3000.00);
+
+            saldoTotal = new TotalizadorDeContas();
+            saldoTotal.Adiciona(contaCorrente);
+            saldoTotal.Adiciona(contaPoupanca);
+
+            cbxTipoConta.SelectedIndex = 0;
+            MostraConta(cbxTipoConta.SelectedIndex);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void cbxTipoConta_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            conta.Deposita(Convert.ToDouble(txtValor.Text));
-            MostraConta();
-            
+            MostraConta(cbxTipoConta.SelectedIndex);
         }
-               
+
+        private void btnDeposito_Click(object sender, EventArgs e)
+        {
+
+            switch (cbxTipoConta.SelectedIndex)
+            {
+                case (int)Conta.tipo.Corrente:
+                    contaCorrente.Deposita(Convert.ToDouble(txtValor.Text));
+                    break;
+
+                case (int)Conta.tipo.Poupanca:
+                    contaPoupanca.Deposita(Convert.ToDouble(txtValor.Text));
+                    break;
+            }
+            
+            MostraConta(cbxTipoConta.SelectedIndex);
+        }
+
         private void btnSacar_Click(object sender, EventArgs e)
         {
-            
-            bool sacou = conta.Saca(Convert.ToDouble(txtValor.Text));//testando idade
-            if (sacou)
-            {
-                MessageBox.Show("Saldo da Conta do " + conta.Titular.Nome + " após saque: " + conta.Saldo);
-            }
-            else
-            {
-                MessageBox.Show("Não foi possível sacar da conta do " + conta.Titular.Nome);
-            }
-            MostraConta();
-        }
 
-        private void MostraConta()
+            switch (cbxTipoConta.SelectedIndex)
+            {
+                case (int)Conta.tipo.Corrente:
+                    contaCorrente.Saca(Convert.ToDouble(txtValor.Text));
+                    break;
+
+                case (int)Conta.tipo.Poupanca:
+                    contaPoupanca.Saca(Convert.ToDouble(txtValor.Text));
+                    break;
+            }
+            
+            MostraConta(cbxTipoConta.SelectedIndex);
+        }
+       
+        private void MostraConta(int tipo)
         {
-            txtTitular.Text = conta.Titular.Nome;
-            txtNumero.Text = conta.Numero.ToString();
-            txtSaldo.Text = conta.Saldo.ToString();
-            txtValor.Clear();
+            switch (tipo)
+            {
+                case (int)Conta.tipo.Corrente:
+                    txtTitular.Text = contaCorrente.Titular.Nome;
+                    txtNumero.Text = contaCorrente.Numero.ToString();
+                    txtSaldo.Text = contaCorrente.Saldo.ToString();
+                    break;
+
+                case (int)Conta.tipo.Poupanca:
+                    txtTitular.Text = contaPoupanca.Titular.Nome;
+                    txtNumero.Text = contaPoupanca.Numero.ToString();
+                    txtSaldo.Text = contaPoupanca.Saldo.ToString();
+                    break;
+            }
+
+            txtSaldoTotal.Text = saldoTotal.SaldoTotal.ToString();
+            txtValor.Clear();   
         }
     }
 }

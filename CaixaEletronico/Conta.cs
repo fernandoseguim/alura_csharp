@@ -6,45 +6,34 @@ using System.Threading.Tasks;
 
 namespace CaixaEletronico
 {
+    
     class Conta
     {
+               
+        public enum tipo { Corrente = 0, Poupanca = 1 };
+
         public int Numero { get; set; }
         public Cliente Titular { get; set; }
-        public double Saldo { get; private set; }
-
-        public void Deposita(double valorASerDepositado)
+        public double Saldo { get; protected set; }
+        
+        public void Deposita(double valor)
         {
-            if (valorASerDepositado > 0)
+            if (valor > 0)
             {
-                this.Saldo += valorASerDepositado;
+                this.Saldo += valor;
             }
         }
 
-        public bool Saca(double valorASerSacado)
+        public virtual bool Saca(double valor)
         {
-            if (valorASerSacado > this.Saldo || valorASerSacado < 0)
+            if (valor > this.Saldo || valor < 0)
             {
                 return false;
             }
             else
             {
-                if (this.Titular.EhMaiorDeIdade())
-                {
-                    this.Saldo -= valorASerSacado;
-                    return true;
-                }
-                else
-                {
-                    if (valorASerSacado <= 200)
-                    {
-                        this.Saldo -= valorASerSacado;
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
+                this.Saldo -= valor;
+                return true;
             }
         }
 
@@ -52,6 +41,7 @@ namespace CaixaEletronico
         {
             this.Saca(valor);
             destino.Deposita(valor);
+            
         }
 
         public double CalculaRendimentoAnual()
