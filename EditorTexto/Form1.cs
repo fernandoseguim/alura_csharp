@@ -23,34 +23,24 @@ namespace EditorTexto
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
             if (File.Exists(file))
             {
-                textaoStream = File.Open(file, FileMode.Open);
-                StreamReader streamReader = new StreamReader(textaoStream);
-                string line = streamReader.ReadLine();
-
-                while (line != null)
+                using (textaoStream = File.Open(file, FileMode.Open))
+                using (StreamReader streamReader = new StreamReader(textaoStream))
                 {
-                    txtTextao.Text += line;
-                    line = streamReader.ReadLine();
+                    string content = streamReader.ReadToEnd();
+                    txtTextao.Text = content;
                 }
-
-                streamReader.Close();
-                textaoStream.Close();
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            textaoStream = File.Open(file, FileMode.Create);
-            StreamWriter streamWriter = new StreamWriter(textaoStream);
-            streamWriter.Write(txtTextao.Text);
-
-            streamWriter.Close();
-            textaoStream.Close();
+            using (textaoStream = File.Open(file, FileMode.Create))
+            using (StreamWriter streamWriter = new StreamWriter(textaoStream))
+            {
+                streamWriter.Write(txtTextao.Text);
+            }
         }
-
-
     }
 }

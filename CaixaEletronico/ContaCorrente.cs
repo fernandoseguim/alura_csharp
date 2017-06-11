@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CaixaEletronico
 {
-    class ContaCorrente : Conta
+    public class ContaCorrente : Conta
     {
         public ContaCorrente(Cliente titular, int numero) : base(titular, numero)
         {

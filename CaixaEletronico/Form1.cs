@@ -150,5 +150,32 @@ namespace CaixaEletronico
             CadastroContas cadastroContas = new CadastroContas(this);
             cadastroContas.ShowDialog();
         }
+
+        private void txtContas_Click(object sender, EventArgs e)
+        {
+            var contas = new List<Conta>
+            {
+                ContaComSaldo(2300),
+                ContaComSaldo(1300),
+                ContaComSaldo(2500)
+            };
+            var contasSaldo2000 = contas.Where(c => c.Saldo > 2000);
+
+            double saldoTotal = contasSaldo2000.Sum(c => c.Saldo);
+
+            foreach (Conta c in contasSaldo2000)
+            {
+                MessageBox.Show(string.Format("Conta numero {0} tem o saldo de: {1}", c.GetNumero(), c.Saldo));
+            }
+
+            MessageBox.Show(string.Format("Saldo Total é de: {0}", saldoTotal));
+        }
+
+        private Conta ContaComSaldo(double saldo)
+        {
+            Conta conta = new ContaCorrente(new Cliente("Fulano", 28), 1);
+            conta.Deposita(saldo);
+            return conta;
+        }
     }
 }

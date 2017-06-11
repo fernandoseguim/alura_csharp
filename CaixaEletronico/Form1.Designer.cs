@@ -44,6 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnCalculaTributos = new System.Windows.Forms.Button();
             this.btnNovaConta = new System.Windows.Forms.Button();
+            this.txtContas = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnDeposito
@@ -188,11 +189,22 @@
             this.btnNovaConta.UseVisualStyleBackColor = true;
             this.btnNovaConta.Click += new System.EventHandler(this.btnNovaConta_Click);
             // 
+            // txtContas
+            // 
+            this.txtContas.Location = new System.Drawing.Point(301, 254);
+            this.txtContas.Name = "txtContas";
+            this.txtContas.Size = new System.Drawing.Size(75, 23);
+            this.txtContas.TabIndex = 19;
+            this.txtContas.Text = "Contas";
+            this.txtContas.UseVisualStyleBackColor = true;
+            this.txtContas.Click += new System.EventHandler(this.txtContas_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 286);
+            this.Controls.Add(this.txtContas);
             this.Controls.Add(this.btnNovaConta);
             this.Controls.Add(this.btnCalculaTributos);
             this.Controls.Add(this.label1);
@@ -235,6 +247,7 @@
         private System.Windows.Forms.ComboBox cbxTipoConta;
         private System.Windows.Forms.Button btnCalculaTributos;
         private System.Windows.Forms.Button btnNovaConta;
+        private System.Windows.Forms.Button txtContas;
     }
 }
 
