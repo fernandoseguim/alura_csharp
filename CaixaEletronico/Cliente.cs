@@ -1,6 +1,6 @@
 ﻿namespace CaixaEletronico
 {
-    class Cliente
+    public class Cliente
     {
         
         public string rg;

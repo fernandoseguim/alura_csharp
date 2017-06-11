@@ -8,6 +8,10 @@ namespace CaixaEletronico
 {
     class ContaPoupanca : Conta, ITributavel
     {
+        public ContaPoupanca(Cliente titular, int numero) : base(titular, numero)
+        {
+        }
+
         public double CalculaTributo()
         {
             return this.Saldo * 0.03;

@@ -8,6 +8,9 @@ namespace CaixaEletronico
 {
     class ContaCorrente : Conta
     {
+        public ContaCorrente(Cliente titular, int numero) : base(titular, numero)
+        {
+        }
 
         public override void Saca(double valor)
         {

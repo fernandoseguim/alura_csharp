@@ -7,15 +7,33 @@ using System.Threading.Tasks;
 namespace CaixaEletronico
 {
     
-    abstract class Conta
+    public abstract class Conta
     {
                
         public enum tipo { Corrente = 0, Poupanca = 1 };
 
-        public int Numero { get; set; }
+        
+        private int numero;
+
+        public int GetNumero()
+        {
+            return numero;
+        }
+
+        private void SetNumero(int numero)
+        {
+            this.numero = numero;
+        }
+        
         public Cliente Titular { get; set; }
         public double Saldo { get; protected set; }
-        
+
+        public Conta(Cliente titular, int numero)
+        {
+            this.Titular = titular;
+            SetNumero(numero);
+        }
+
         public void Deposita(double valor)
         {
             if (valor > 0)

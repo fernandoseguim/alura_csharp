@@ -17,25 +17,28 @@ namespace CaixaEletronico
         ContaCorrente contaCorrente;
         ContaPoupanca contaPoupanca;
         TotalizadorDeContas saldoTotal;
-        
+        private Conta[] contas;
+        private int quatidadeContas;
+
+        public int QuatidadeContas { get => quatidadeContas; private set => quatidadeContas = value; }
+
         public Form1()
         {
+            contas = new Conta[100];
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             
-            contaCorrente = new ContaCorrente();
-            contaCorrente.Titular = new Cliente("Fernando Seguim", 28);
-            contaCorrente.Numero = 1;
+            contaCorrente = new ContaCorrente(new Cliente("Fernando Seguim", 28), 1);
             contaCorrente.Deposita(1000.00);
+            quatidadeContas++;
 
-            contaPoupanca = new ContaPoupanca();
-            contaPoupanca.Titular = contaCorrente.Titular;
-            contaPoupanca.Numero = contaCorrente.Numero;
+            contaPoupanca = new ContaPoupanca(contaCorrente.Titular, 2);
             contaPoupanca.Deposita(3000.00);
-            
+            quatidadeContas++;
+
             saldoTotal = new TotalizadorDeContas();
             saldoTotal.Adiciona(contaCorrente);
             saldoTotal.Adiciona(contaPoupanca);
@@ -48,6 +51,7 @@ namespace CaixaEletronico
         {
             MostraConta(cbxTipoConta.SelectedIndex);
         }
+
 
         private void btnDeposito_Click(object sender, EventArgs e)
         {
@@ -98,7 +102,7 @@ namespace CaixaEletronico
                     btnCalculaTributos.Visible = false;
                     btnCalculaTributos.Enabled = false;
                     txtTitular.Text = contaCorrente.Titular.Nome;
-                    txtNumero.Text = contaCorrente.Numero.ToString();
+                    txtNumero.Text = contaCorrente.GetNumero().ToString();
                     txtSaldo.Text = contaCorrente.Saldo.ToString();
                     break;
 
@@ -106,7 +110,7 @@ namespace CaixaEletronico
                     btnCalculaTributos.Visible = true;
                     btnCalculaTributos.Enabled = true;
                     txtTitular.Text = contaPoupanca.Titular.Nome;
-                    txtNumero.Text = contaPoupanca.Numero.ToString();
+                    txtNumero.Text = contaPoupanca.GetNumero().ToString();
                     txtSaldo.Text = contaPoupanca.Saldo.ToString();
                     break;
             }
@@ -134,6 +138,17 @@ namespace CaixaEletronico
                 MessageBox.Show("Erro ao sacar valor!");
             }
         }
+       
+        public void AddConta(Conta conta)
+        {
+            contas[this.quatidadeContas] = conta;
+            this.quatidadeContas++;
+        }
 
+        private void btnNovaConta_Click(object sender, EventArgs e)
+        {
+            CadastroContas cadastroContas = new CadastroContas(this);
+            cadastroContas.ShowDialog();
+        }
     }
 }

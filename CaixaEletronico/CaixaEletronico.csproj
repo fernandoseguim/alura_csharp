@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastroContas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroContas.Designer.cs">
+      <DependentUpon>CadastroContas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cliente.cs" />
     <Compile Include="Conta.cs" />
     <Compile Include="ContaCorrente.cs" />
@@ -62,6 +68,9 @@
     <Compile Include="TotalizadorDeContas.cs" />
     <Compile Include="TotalizadorDeTributos.cs" />
     <Compile Include="Tributavel.cs" />
+    <EmbeddedResource Include="CadastroContas.resx">
+      <DependentUpon>CadastroContas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

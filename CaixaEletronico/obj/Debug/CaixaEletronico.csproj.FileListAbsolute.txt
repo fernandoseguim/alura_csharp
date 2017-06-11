@@ -16,3 +16,13 @@ D:\Projects\Courses\C#\alura\CaixaEletronico\CaixaEletronico\obj\Debug\CaixaElet
 D:\Projects\Courses\C#\alura\CaixaEletronico\CaixaEletronico\obj\Debug\CaixaEletronico.csproj.GenerateResource.Cache
 D:\Projects\Courses\C#\alura\CaixaEletronico\CaixaEletronico\obj\Debug\CaixaEletronico.exe
 D:\Projects\Courses\C#\alura\CaixaEletronico\CaixaEletronico\obj\Debug\CaixaEletronico.pdb
+D:\projetos\learn\alura_csharp_oo\CaixaEletronico\bin\Debug\CaixaEletronico.exe.config
+D:\projetos\learn\alura_csharp_oo\CaixaEletronico\bin\Debug\CaixaEletronico.exe
+D:\projetos\learn\alura_csharp_oo\CaixaEletronico\bin\Debug\CaixaEletronico.pdb
+D:\projetos\learn\alura_csharp_oo\CaixaEletronico\obj\Debug\CaixaEletronico.csprojResolveAssemblyReference.cache
+D:\projetos\learn\alura_csharp_oo\CaixaEletronico\obj\Debug\CaixaEletronico.Form1.resources
+D:\projetos\learn\alura_csharp_oo\CaixaEletronico\obj\Debug\CaixaEletronico.Properties.Resources.resources
+D:\projetos\learn\alura_csharp_oo\CaixaEletronico\obj\Debug\CaixaEletronico.csproj.GenerateResource.Cache
+D:\projetos\learn\alura_csharp_oo\CaixaEletronico\obj\Debug\CaixaEletronico.exe
+D:\projetos\learn\alura_csharp_oo\CaixaEletronico\obj\Debug\CaixaEletronico.pdb
+D:\projetos\learn\alura_csharp_oo\CaixaEletronico\obj\Debug\CaixaEletronico.CadastroContas.resources
