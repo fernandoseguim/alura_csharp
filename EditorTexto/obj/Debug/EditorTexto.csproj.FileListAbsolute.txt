@@ -1,9 +1,0 @@
-D:\projetos\learn\alura_csharp_oo\EditorTexto\bin\Debug\EditorTexto.exe.config
-D:\projetos\learn\alura_csharp_oo\EditorTexto\bin\Debug\EditorTexto.exe
-D:\projetos\learn\alura_csharp_oo\EditorTexto\bin\Debug\EditorTexto.pdb
-D:\projetos\learn\alura_csharp_oo\EditorTexto\obj\Debug\EditorTexto.csprojResolveAssemblyReference.cache
-D:\projetos\learn\alura_csharp_oo\EditorTexto\obj\Debug\EditorTexto.Form1.resources
-D:\projetos\learn\alura_csharp_oo\EditorTexto\obj\Debug\EditorTexto.Properties.Resources.resources
-D:\projetos\learn\alura_csharp_oo\EditorTexto\obj\Debug\EditorTexto.csproj.GenerateResource.Cache
-D:\projetos\learn\alura_csharp_oo\EditorTexto\obj\Debug\EditorTexto.exe
-D:\projetos\learn\alura_csharp_oo\EditorTexto\obj\Debug\EditorTexto.pdb

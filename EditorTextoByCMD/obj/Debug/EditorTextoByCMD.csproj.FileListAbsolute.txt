@@ -1,5 +1,0 @@
-D:\projetos\learn\alura_csharp_oo\EditorTextoByCMD\bin\Debug\EditorTextoByCMD.exe.config
-D:\projetos\learn\alura_csharp_oo\EditorTextoByCMD\bin\Debug\EditorTextoByCMD.exe
-D:\projetos\learn\alura_csharp_oo\EditorTextoByCMD\bin\Debug\EditorTextoByCMD.pdb
-D:\projetos\learn\alura_csharp_oo\EditorTextoByCMD\obj\Debug\EditorTextoByCMD.exe
-D:\projetos\learn\alura_csharp_oo\EditorTextoByCMD\obj\Debug\EditorTextoByCMD.pdb
